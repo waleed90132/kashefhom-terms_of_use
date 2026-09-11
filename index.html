@@ -3,136 +3,903 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شروط الاستخدام - كاشفهم | Terms of Use - Kashefhom</title>
+    <meta name="description" content="شروط الاستخدام لتطبيق كاشفهم - Terms of Use for Kashefhom">
+    <title>شروط الاستخدام | كاشفهم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;600&display=swap');
-        
-        body { font-family: 'Cairo', sans-serif; background-color: #f4f7f9; color: #333; margin: 0; padding: 0; line-height: 1.8; }
-        .container { max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .lang-switch { text-align: left; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .lang-btn { background: #00BCD4; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-left: 10px; }
-        .lang-btn.active { background: #004D40; }
-        .en-content { display: none; font-family: 'Inter', sans-serif; direction: ltr; text-align: left; }
-        .ar-content { direction: rtl; text-align: right; }
-        h1 { color: #00BCD4; font-weight: 700; }
-        h2 { color: #00796B; margin-top: 30px; }
-        p, li { font-size: 16px; margin-bottom: 15px; }
-        a { color: #00BCD4; text-decoration: none; }
-        strong { color: #000; }
-        ul { padding-right: 20px; }
-        .en-content ul { padding-left: 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --secondary: #fbbf24;
+            --accent: #fb923c;
+            --bg-dark: #1a1008;
+            --bg-darker: #0f0a05;
+            --text-primary: #fef3c7;
+            --text-secondary: #d6bc9a;
+            --text-muted: #8b7355;
+            --glass: rgba(251, 191, 36, 0.05);
+            --glass-border: rgba(251, 191, 36, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ✨ خلفية متحركة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.06) 0%, transparent 60%);
+            animation: bgFloat 20s ease-in-out infinite;
+            z-index: -2;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-20px, 20px); }
+        }
+
+        /* ✨ شبكة خلفية */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(251, 191, 36, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(251, 191, 36, 0.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* 🎯 حاوية رئيسية */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 🌟 الهيدر الفخم */
+        .hero {
+            padding: 60px 30px 50px;
+            text-align: center;
+            position: relative;
+            border-radius: 32px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 146, 60, 0.05));
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            margin-bottom: 40px;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.15), transparent 30%);
+            animation: rotate 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 📜 أيقونة الميثاق */
+        .shield-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
+            box-shadow:
+                0 20px 40px rgba(245, 158, 11, 0.4),
+                0 0 80px rgba(251, 146, 60, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.2);
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .shield-icon::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
+            filter: blur(15px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .shield-icon svg {
+            width: 45px;
+            height: 45px;
+            color: white;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        /* 🏷️ العنوان الرئيسي */
+        .app-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #fb923c 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 📅 التاريخ */
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 8px 18px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .last-updated svg {
+            width: 14px;
+            height: 14px;
+            color: var(--secondary);
+        }
+
+        /* 🌐 زر تبديل اللغة */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 30px;
+            padding: 6px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .lang-toggle button {
+            padding: 10px 24px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-toggle button:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-toggle button.active {
+            background: linear-gradient(135deg, #f59e0b, #fb923c);
+            color: white;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            transform: scale(1.02);
+        }
+
+        /* 📋 كرت المحتوى */
+        .content-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 35px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* 🎬 أنيميشن */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 📑 قسم داخل الكرت */
+        .section {
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.3s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.5s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.7s; }
+        .section:nth-child(6) { animation-delay: 0.8s; }
+        .section:nth-child(7) { animation-delay: 0.9s; }
+        .section:nth-child(8) { animation-delay: 1.0s; }
+        .section:nth-child(9) { animation-delay: 1.1s; }
+        .section:nth-child(10) { animation-delay: 1.2s; }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 🎯 رأس القسم */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .section-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 146, 60, 0.1));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 0.3px;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 12px;
+            line-height: 1.9;
+        }
+
+        /* 📝 قائمة */
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0;
+        }
+
+        .section ul li {
+            position: relative;
+            padding: 10px 0 10px 32px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        [dir="rtl"] .section ul li {
+            padding-left: 0;
+            padding-right: 32px;
+        }
+
+        .section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .section ul li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 20px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+        }
+
+        [dir="rtl"] .section ul li::before {
+            left: auto;
+            right: 8px;
+        }
+
+        /* 💪 الكلمات المميزة */
+        .section strong {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* ⚠️ تنبيه */
+        .warning-box {
+            display: flex;
+            gap: 12px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-radius: 16px;
+            margin: 16px 0;
+            align-items: flex-start;
+        }
+
+        .warning-box svg {
+            width: 22px;
+            height: 22px;
+            color: #f87171;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .warning-box p {
+            color: #fca5a5;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* 📧 رابط البريد */
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(251, 146, 60, 0.1));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .email-link:hover {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(251, 146, 60, 0.2));
+            border-color: rgba(245, 158, 11, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .email-link svg {
+            width: 18px;
+            height: 18px;
+            color: var(--secondary);
+        }
+
+        /* 🚫 إخفاء */
+        .hidden {
+            display: none !important;
+        }
+
+        /* 🎯 الفوتر */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer .footer-logo {
+            font-weight: 700;
+            background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        /* 📱 للجوال */
+        @media (max-width: 640px) {
+            .container {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 45px 20px 35px;
+                border-radius: 24px;
+            }
+
+            .shield-icon {
+                width: 75px;
+                height: 75px;
+            }
+
+            .shield-icon svg {
+                width: 38px;
+                height: 38px;
+            }
+
+            .content-card {
+                padding: 28px 22px;
+                border-radius: 20px;
+            }
+
+            .section h2 {
+                font-size: 17px;
+            }
+
+            .section p, .section ul li {
+                font-size: 14px;
+            }
+
+            .section-number {
+                width: 34px;
+                height: 34px;
+                font-size: 14px;
+            }
+
+            .lang-toggle button {
+                padding: 9px 18px;
+                font-size: 13px;
+            }
+        }
+
+        /* 🌈 شريط علوي */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #fb923c, #fbbf24, #f59e0b);
+            background-size: 300% 100%;
+            animation: slideGradient 4s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes slideGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        /* 🎯 تخطيط عربي */
+        [dir="rtl"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* 📖 Scrollbar مخصص */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #f59e0b, #fb923c);
+            border-radius: 10px;
+            border: 2px solid var(--bg-darker);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #d97706, #ea580c);
+        }
     </style>
 </head>
 <body>
+
+    <div class="top-bar"></div>
+
     <div class="container">
-        <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLang('ar')">العربية</button>
-            <button class="lang-btn" onclick="setLang('en')">English</button>
+
+        <!-- 🌟 Hero Section -->
+        <div class="hero">
+            <div class="shield-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+            </div>
+
+            <div class="app-name">KASHEFHOM • كاشفهم</div>
+
+            <h1 id="hero-title">شروط الاستخدام</h1>
+            <p id="hero-subtitle">اتفاقية استخدام واضحة وعادلة</p>
+
+            <div class="last-updated">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <span id="last-updated-text">آخر تحديث: 11 سبتمبر 2026</span>
+            </div>
         </div>
 
-        <!-- المحتوى العربي -->
-        <div id="ar-content" class="ar-content">
-            <h1>شروط الاستخدام لتطبيق كاشفهم</h1>
-            <p>آخر تحديث: يناير 2026</p>
-            <p>مرحباً بك في تطبيق <strong>كاشفهم</strong>. باستخدامك للتطبيق، فإنك توافق على الالتزام بالشروط والأحكام التالية. إذا كنت لا توافق على هذه الشروط، يرجى التوقف عن استخدام التطبيق.</p>
-
-            <h2>1. القبول بالشروط</h2>
-            <p>بتحميلك أو استخدامك لتطبيق كاشفهم، فإنك تقر بأنك قرأت هذه الشروط وفهمتها ووافقت على الالتزام بها، بالإضافة إلى سياسة الخصوصية الخاصة بنا.</p>
-
-            <h2>2. السن القانوني</h2>
-            <p>يجب أن يكون عمرك 13 عاماً على الأقل لاستخدام هذا التطبيق. إذا كان عمرك بين 13 و18 عاماً، يجب أن تحصل على موافقة والديك أو ولي أمرك.</p>
-
-            <h2>3. الترخيص والقيود</h2>
-            <p>نمنحك ترخيصاً شخصياً، غير تجاري، وغير قابل للتحويل لاستخدام التطبيق. يُمنع منعاً باتاً:
-                <ul>
-                    <li>نسخ أو تعديل أو توزيع أي جزء من التطبيق.</li>
-                    <li>استخدام بيانات التطبيق لأغراض تسويقية أو مضايقة أو تهديد.</li>
-                    <li>محاولة تفكيك الشيفرة المصدرية أو اختراق النظام.</li>
-                </ul>
-            </p>
-
-            <h2>4. الاستخدام العادل للبيانات</h2>
-            <p>نلتزم بتوفير بيانات دقيقة لأسماء المتصلين، مع العلم أن النتائج قد لا تكون دقيقة 100%، ويجب استخدامها كمرجع شخصي فقط. نرفض بشدة استخدام التطبيق في الاحتيال أو التخويف أو انتهاك خصوصية الآخرين.</p>
-
-            <h2>5. الإعلانات</h2>
-            <p>التطبيق مجاني بالكامل ويعتمد على عرض إعلانات لتمويل خدماته. لا نتحمل مسؤولية محتوى الإعلانات أو المنتجات المعلن عنها من طرف ثالث.</p>
-
-            <h2>6. إخلاء المسؤولية</h2>
-            <p>يتم تقديم التطبيق "كما هو" و"كما هو متاح". لا نضمن خلو الخدمة من الأخطاء أو انقطاعها. أنت تتحمل المسؤولية الكاملة عن أي ضرر قد يحدث لجهازك نتيجة استخدام التطبيق.</p>
-
-            <h2>7. الملكية الفكرية</h2>
-            <p>جميع حقوق الملكية الفكرية للتصميم والشعارات والمحتوى الخاص بتطبيق كاشفهم محفوظة لنا حصرياً ولا يجوز استخدامها دون إذن كتابي مسبق منا.</p>
-
-            <h2>8. التغييرات على الشروط</h2>
-            <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إشعارك بأي تغييرات جوهرية، واستمرارك في استخدام التطبيق بعد التعديل يعتبر موافقة منك عليها.</p>
-
-            <h2>9. التواصل معنا</h2>
-            <p>لأي استفسار حول شروط الاستخدام، يرجى مراسلتنا على: <a href="mailto:kashefhom.dev@gmail.com">kashefhom.dev@gmail.com</a></p>
+        <!-- 🌐 Language Toggle -->
+        <div class="lang-toggle">
+            <button id="btn-ar" class="active" onclick="showLang('ar')">🇰🇼 العربية</button>
+            <button id="btn-en" onclick="showLang('en')">🇬🇧 English</button>
         </div>
 
-        <!-- المحتوى الإنجليزي -->
-        <div id="en-content" class="en-content">
-            <h1>Terms of Use for Kashefhom</h1>
-            <p>Last Updated: January 2026</p>
-            <p>Welcome to <strong>Kashefhom</strong>. By using the App, you agree to comply with the following terms and conditions. If you do not agree with these terms, please discontinue use of the App.</p>
+        <!-- ==================== القسم العربي ==================== -->
+        <div id="content-ar">
+            <div class="content-card">
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>By downloading or using the Kashefhom App, you acknowledge that you have read, understood, and agree to be bound by these terms, in addition to our Privacy Policy.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <h2>الموافقة على الشروط</h2>
+                    </div>
+                    <p>باستخدامك لتطبيق <strong>"كاشفهم: دليل أرقام الكويت"</strong>، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى التوقف عن استخدام التطبيق.</p>
+                </div>
 
-            <h2>2. Legal Age</h2>
-            <p>You must be at least 13 years old to use this App. If you are between 13 and 18, you must have your parent's or guardian's consent.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <h2>وصف الخدمة</h2>
+                    </div>
+                    <p>يقدم تطبيق "كاشفهم" الخدمات التالية:</p>
+                    <ul>
+                        <li>كشف هوية المتصلين للأرقام الواردة.</li>
+                        <li>البحث في دليل أرقام الكويت بالاسم أو الرقم.</li>
+                        <li>مكتبة ملصقات واتساب وتيليجرام المتنوعة.</li>
+                        <li>تقارير VIP للتحليل المتقدم للأرقام.</li>
+                    </ul>
+                </div>
 
-            <h2>3. License and Restrictions</h2>
-            <p>We grant you a personal, non-commercial, non-transferable license to use the App. You are strictly prohibited from:
-                <ul>
-                    <li>Copying, modifying, or distributing any part of the App.</li>
-                    <li>Using App data for marketing, harassment, or threats.</li>
-                    <li>Attempting to decompile source code or hack the system.</li>
-                </ul>
-            </p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <h2>شروط الاستخدام</h2>
+                    </div>
+                    <p>عند استخدامك للتطبيق، توافق على:</p>
+                    <ul>
+                        <li>استخدام التطبيق للأغراض المشروعة فقط.</li>
+                        <li>عدم استخدام التطبيق للإزعاج أو المضايقة أو الاحتيال.</li>
+                        <li>عدم محاولة اختراق التطبيق أو السيرفر أو التلاعب ببياناته.</li>
+                        <li>عدم استخدام التطبيق لأي غرض غير قانوني في دولة الكويت أو أي دولة أخرى.</li>
+                        <li>عدم إساءة استخدام وظيفة كشف الأرقام لمضايقة الآخرين.</li>
+                    </ul>
+                </div>
 
-            <h2>4. Fair Use of Data</h2>
-            <p>We strive to provide accurate caller name data; however, results may not be 100% accurate and should be used for personal reference only. We strictly reject the use of the App for fraud, intimidation, or violating others' privacy.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <h2>الملكية الفكرية</h2>
+                    </div>
+                    <p>جميع حقوق الملكية الفكرية للتطبيق، بما في ذلك التصميم والشعارات والكود المصدري، محفوظة لمطوري التطبيق. لا يجوز نسخ أو تعديل أو توزيع أي جزء من التطبيق دون إذن كتابي مسبق.</p>
+                </div>
 
-            <h2>5. Advertising</h2>
-            <p>The App is completely free and relies on displaying ads to fund its services. We are not responsible for the content of ads or products advertised by third parties.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">5</div>
+                        <h2>إخلاء المسؤولية</h2>
+                    </div>
+                    <p>يتم تقديم التطبيق <strong>"كما هو"</strong> دون أي ضمانات صريحة أو ضمنية. لا نتحمل أي مسؤولية عن:</p>
+                    <ul>
+                        <li>دقة أو اكتمال البيانات المعروضة في دليل الأرقام.</li>
+                        <li>أي أضرار مباشرة أو غير مباشرة ناتجة عن استخدام التطبيق.</li>
+                        <li>انقطاع الخدمة أو الأخطاء التقنية المؤقتة.</li>
+                        <li>سوء استخدام التطبيق من قبل المستخدمين.</li>
+                    </ul>
 
-            <h2>6. Disclaimer</h2>
-            <p>The App is provided "as is" and "as available". We do not guarantee the service will be error-free or uninterrupted. You are solely responsible for any damage that may occur to your device from using the App.</p>
+                    <div class="warning-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <p>تنبيه: البيانات المعروضة قد تحتوي على أخطاء أو معلومات قديمة. يرجى التحقق من المعلومات الحساسة قبل الاعتماد عليها.</p>
+                    </div>
+                </div>
 
-            <h2>7. Intellectual Property</h2>
-            <p>All intellectual property rights to the design, logos, and content of the Kashefhom App are exclusively reserved to us and may not be used without prior written permission.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">6</div>
+                        <h2>حدود المسؤولية</h2>
+                    </div>
+                    <p>في أي حال من الأحوال، لن يكون مطورو "كاشفهم" مسؤولين عن أي أضرار تزيد عن المبلغ المدفوع لاستخدام التطبيق (إن وجد). استخدامك للتطبيق يكون على مسؤوليتك الشخصية.</p>
+                </div>
 
-            <h2>8. Changes to Terms</h2>
-            <p>We reserve the right to modify these terms at any time. You will be notified of any material changes, and your continued use of the App after modification constitutes acceptance of them.</p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">7</div>
+                        <h2>الإنهاء</h2>
+                    </div>
+                    <p>نحتفظ بالحق في تعليق أو إنهاء وصولك إلى التطبيق في أي وقت دون إشعار مسبق، إذا انتهكت هذه الشروط أو استخدمت التطبيق بشكل ضار.</p>
+                </div>
 
-            <h2>9. Contact Us</h2>
-            <p>For any questions regarding these Terms of Use, please contact us at: <a href="mailto:kashefhom.dev@gmail.com">kashefhom.dev@gmail.com</a></p>
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">8</div>
+                        <h2>القانون المطبق</h2>
+                    </div>
+                    <p>تخضع هذه الشروط وتفسر وفقاً لقوانين <strong>دولة الكويت</strong>. أي نزاع ينشأ عن استخدام التطبيق سيتم حله في المحاكم المختصة في دولة الكويت.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">9</div>
+                        <h2>التعديلات على الشروط</h2>
+                    </div>
+                    <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إشعارك بالتغييرات الجوهرية عبر التطبيق. استمرار استخدامك للتطبيق بعد التعديلات يعني موافقتك على الشروط المحدثة.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">10</div>
+                        <h2>اتصل بنا</h2>
+                    </div>
+                    <p>إذا كان لديك أي أسئلة حول شروط الاستخدام، يمكنك التواصل معنا على:</p>
+                    <a href="mailto:kashefhom.dev@gmail.com" class="email-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        kashefhom.dev@gmail.com
+                    </a>
+                </div>
+
+            </div>
         </div>
+
+        <!-- ==================== English Section ==================== -->
+        <div id="content-en" class="hidden" dir="ltr">
+            <div class="content-card">
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <h2>Acceptance of Terms</h2>
+                    </div>
+                    <p>By using the <strong>"Kashefhom: Kuwait Number Book"</strong> app, you agree to comply with these terms and conditions. If you do not agree with any of these terms, please stop using the app.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <h2>Service Description</h2>
+                    </div>
+                    <p>The "Kashefhom" app provides the following services:</p>
+                    <ul>
+                        <li>Caller ID identification for incoming numbers.</li>
+                        <li>Search the Kuwait number directory by name or number.</li>
+                        <li>A diverse library of WhatsApp and Telegram stickers.</li>
+                        <li>VIP reports for advanced number analysis.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <h2>Usage Terms</h2>
+                    </div>
+                    <p>When using the app, you agree to:</p>
+                    <ul>
+                        <li>Use the app only for lawful purposes.</li>
+                        <li>Not use the app for harassment, annoyance, or fraud.</li>
+                        <li>Not attempt to hack the app, server, or manipulate its data.</li>
+                        <li>Not use the app for any illegal purpose in Kuwait or any other country.</li>
+                        <li>Not misuse the caller ID feature to harass others.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <h2>Intellectual Property</h2>
+                    </div>
+                    <p>All intellectual property rights to the app, including design, logos, and source code, are reserved by the app developers. No part of the app may be copied, modified, or distributed without prior written permission.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">5</div>
+                        <h2>Disclaimer</h2>
+                    </div>
+                    <p>The app is provided <strong>"as is"</strong> without any express or implied warranties. We are not responsible for:</p>
+                    <ul>
+                        <li>The accuracy or completeness of data displayed in the number directory.</li>
+                        <li>Any direct or indirect damages resulting from the use of the app.</li>
+                        <li>Service interruptions or temporary technical errors.</li>
+                        <li>Misuse of the app by users.</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        <p>Warning: Displayed data may contain errors or outdated information. Please verify sensitive information before relying on it.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">6</div>
+                        <h2>Limitation of Liability</h2>
+                    </div>
+                    <p>Under no circumstances shall the developers of "Kashefhom" be liable for any damages exceeding the amount paid to use the app (if any). Your use of the app is at your own risk.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">7</div>
+                        <h2>Termination</h2>
+                    </div>
+                    <p>We reserve the right to suspend or terminate your access to the app at any time without prior notice if you violate these terms or use the app harmfully.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">8</div>
+                        <h2>Governing Law</h2>
+                    </div>
+                    <p>These terms are governed by and construed in accordance with the laws of the <strong>State of Kuwait</strong>. Any dispute arising from the use of the app shall be resolved in the competent courts of the State of Kuwait.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">9</div>
+                        <h2>Changes to Terms</h2>
+                    </div>
+                    <p>We reserve the right to modify these terms at any time. You will be notified of material changes through the app. Your continued use of the app after modifications means you accept the updated terms.</p>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-number">10</div>
+                        <h2>Contact Us</h2>
+                    </div>
+                    <p>If you have any questions about these Terms of Use, you can contact us at:</p>
+                    <a href="mailto:kashefhom.dev@gmail.com" class="email-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        kashefhom.dev@gmail.com
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <span class="footer-logo">كاشفهم • Kashefhom</span>
+            <p>© 2026 Kashefhom. All rights reserved.</p>
+        </footer>
+
     </div>
 
     <script>
-        function setLang(lang) {
-            var ar = document.getElementById('ar-content');
-            var en = document.getElementById('en-content');
-            var btns = document.querySelectorAll('.lang-btn');
-            
+        function showLang(lang) {
+            const arContent = document.getElementById('content-ar');
+            const enContent = document.getElementById('content-en');
+            const btnAr = document.getElementById('btn-ar');
+            const btnEn = document.getElementById('btn-en');
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            const lastUpdated = document.getElementById('last-updated-text');
+            const html = document.documentElement;
+
             if (lang === 'ar') {
-                document.documentElement.lang = 'ar';
-                document.documentElement.dir = 'rtl';
-                ar.style.display = 'block';
-                en.style.display = 'none';
-                btns[0].classList.add('active');
-                btns[1].classList.remove('active');
+                arContent.classList.remove('hidden');
+                enContent.classList.add('hidden');
+                btnAr.classList.add('active');
+                btnEn.classList.remove('active');
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                heroTitle.textContent = 'شروط الاستخدام';
+                heroSubtitle.textContent = 'اتفاقية استخدام واضحة وعادلة';
+                lastUpdated.textContent = 'آخر تحديث: 11 سبتمبر 2026';
             } else {
-                document.documentElement.lang = 'en';
-                document.documentElement.dir = 'ltr';
-                ar.style.display = 'none';
-                en.style.display = 'block';
-                btns[1].classList.add('active');
-                btns[0].classList.remove('active');
+                enContent.classList.remove('hidden');
+                arContent.classList.add('hidden');
+                btnEn.classList.add('active');
+                btnAr.classList.remove('active');
+                html.lang = 'en';
+                html.dir = 'ltr';
+                heroTitle.textContent = 'Terms of Use';
+                heroSubtitle.textContent = 'Clear and fair usage agreement';
+                lastUpdated.textContent = 'Last updated: September 11, 2026';
             }
+
+            // إعادة تشغيل الأنيميشن
+            document.querySelectorAll('.section').forEach((el, i) => {
+                el.style.animation = 'none';
+                setTimeout(() => {
+                    el.style.animation = `fadeInUp 0.6s ease-out ${0.1 + i * 0.05}s forwards`;
+                }, 10);
+            });
         }
+
+        // أنيميشن عند التمرير
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < 400) {
+                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+                hero.style.opacity = Math.max(0, 1 - scrolled / 500);
+            }
+        }, { passive: true });
     </script>
 </body>
 </html>
