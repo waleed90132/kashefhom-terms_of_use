@@ -9,11 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #f59e0b;
@@ -29,9 +25,7 @@
             --glass-border: rgba(251, 191, 36, 0.1);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -43,14 +37,10 @@
             position: relative;
         }
 
-        /* ✨ خلفية متحركة */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background:
                 radial-gradient(circle at 20% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.12) 0%, transparent 50%),
@@ -64,14 +54,10 @@
             50% { transform: scale(1.1) translate(-20px, 20px); }
         }
 
-        /* ✨ شبكة خلفية */
         body::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-image:
                 linear-gradient(rgba(251, 191, 36, 0.025) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(251, 191, 36, 0.025) 1px, transparent 1px);
@@ -80,7 +66,6 @@
             pointer-events: none;
         }
 
-        /* 🎯 حاوية رئيسية */
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -89,7 +74,6 @@
             z-index: 1;
         }
 
-        /* 🌟 الهيدر الفخم */
         .hero {
             padding: 60px 30px 50px;
             text-align: center;
@@ -107,10 +91,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.15), transparent 30%);
             animation: rotate 15s linear infinite;
             z-index: -1;
@@ -121,14 +103,11 @@
             to { transform: rotate(360deg); }
         }
 
-        /* 📜 أيقونة الميثاق */
         .shield-icon {
-            width: 90px;
-            height: 90px;
+            width: 90px; height: 90px;
             margin: 0 auto 25px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; justify-content: center;
             border-radius: 50%;
             background: linear-gradient(135deg, #f59e0b, #fb923c, #fbbf24);
             box-shadow:
@@ -157,13 +136,11 @@
         }
 
         .shield-icon svg {
-            width: 45px;
-            height: 45px;
+            width: 45px; height: 45px;
             color: white;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
         }
 
-        /* 🏷️ العنوان الرئيسي */
         .app-name {
             font-size: 14px;
             font-weight: 600;
@@ -192,7 +169,6 @@
             margin: 0 auto;
         }
 
-        /* 📅 التاريخ */
         .last-updated {
             display: inline-flex;
             align-items: center;
@@ -208,12 +184,10 @@
         }
 
         .last-updated svg {
-            width: 14px;
-            height: 14px;
+            width: 14px; height: 14px;
             color: var(--secondary);
         }
 
-        /* 🌐 زر تبديل اللغة */
         .lang-toggle {
             display: flex;
             justify-content: center;
@@ -245,9 +219,7 @@
             overflow: hidden;
         }
 
-        .lang-toggle button:hover {
-            color: var(--text-primary);
-        }
+        .lang-toggle button:hover { color: var(--text-primary); }
 
         .lang-toggle button.active {
             background: linear-gradient(135deg, #f59e0b, #fb923c);
@@ -256,7 +228,6 @@
             transform: scale(1.02);
         }
 
-        /* 📋 كرت المحتوى */
         .content-card {
             background: var(--glass);
             border: 1px solid var(--glass-border);
@@ -270,19 +241,11 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        /* 🎬 أنيميشن */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 📑 قسم داخل الكرت */
         .section {
             margin-bottom: 35px;
             opacity: 0;
@@ -301,11 +264,8 @@
         .section:nth-child(9) { animation-delay: 1.1s; }
         .section:nth-child(10) { animation-delay: 1.2s; }
 
-        .section:last-child {
-            margin-bottom: 0;
-        }
+        .section:last-child { margin-bottom: 0; }
 
-        /* 🎯 رأس القسم */
         .section-header {
             display: flex;
             align-items: center;
@@ -315,11 +275,9 @@
 
         .section-number {
             flex-shrink: 0;
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; justify-content: center;
             border-radius: 12px;
             background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 146, 60, 0.1));
             border: 1px solid rgba(245, 158, 11, 0.3);
@@ -342,7 +300,6 @@
             line-height: 1.9;
         }
 
-        /* 📝 قائمة */
         .section ul {
             list-style: none;
             padding: 0;
@@ -363,17 +320,13 @@
             padding-right: 32px;
         }
 
-        .section ul li:last-child {
-            border-bottom: none;
-        }
+        .section ul li:last-child { border-bottom: none; }
 
         .section ul li::before {
             content: '';
             position: absolute;
-            left: 8px;
-            top: 20px;
-            width: 8px;
-            height: 8px;
+            left: 8px; top: 20px;
+            width: 8px; height: 8px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
@@ -384,13 +337,8 @@
             right: 8px;
         }
 
-        /* 💪 الكلمات المميزة */
-        .section strong {
-            color: var(--secondary);
-            font-weight: 700;
-        }
+        .section strong { color: var(--secondary); font-weight: 700; }
 
-        /* ⚠️ تنبيه */
         .warning-box {
             display: flex;
             gap: 12px;
@@ -403,8 +351,7 @@
         }
 
         .warning-box svg {
-            width: 22px;
-            height: 22px;
+            width: 22px; height: 22px;
             color: #f87171;
             flex-shrink: 0;
             margin-top: 3px;
@@ -417,7 +364,6 @@
             line-height: 1.7;
         }
 
-        /* 📧 رابط البريد */
         .email-link {
             display: inline-flex;
             align-items: center;
@@ -441,18 +387,10 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
 
-        .email-link svg {
-            width: 18px;
-            height: 18px;
-            color: var(--secondary);
-        }
+        .email-link svg { width: 18px; height: 18px; color: var(--secondary); }
 
-        /* 🚫 إخفاء */
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
 
-        /* 🎯 الفوتر */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -471,58 +409,9 @@
             display: block;
         }
 
-        /* 📱 للجوال */
-        @media (max-width: 640px) {
-            .container {
-                padding: 12px;
-            }
-
-            .hero {
-                padding: 45px 20px 35px;
-                border-radius: 24px;
-            }
-
-            .shield-icon {
-                width: 75px;
-                height: 75px;
-            }
-
-            .shield-icon svg {
-                width: 38px;
-                height: 38px;
-            }
-
-            .content-card {
-                padding: 28px 22px;
-                border-radius: 20px;
-            }
-
-            .section h2 {
-                font-size: 17px;
-            }
-
-            .section p, .section ul li {
-                font-size: 14px;
-            }
-
-            .section-number {
-                width: 34px;
-                height: 34px;
-                font-size: 14px;
-            }
-
-            .lang-toggle button {
-                padding: 9px 18px;
-                font-size: 13px;
-            }
-        }
-
-        /* 🌈 شريط علوي */
         .top-bar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, #f59e0b, #fb923c, #fbbf24, #f59e0b);
             background-size: 300% 100%;
@@ -535,28 +424,29 @@
             100% { background-position: 300% 50%; }
         }
 
-        /* 🎯 تخطيط عربي */
-        [dir="rtl"] body {
-            font-family: 'Cairo', sans-serif;
-        }
+        [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
-        /* 📖 Scrollbar مخصص */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-darker);
-        }
-
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-darker); }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, #f59e0b, #fb923c);
             border-radius: 10px;
             border: 2px solid var(--bg-darker);
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, #d97706, #ea580c);
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 12px; }
+            .hero { padding: 45px 20px 35px; border-radius: 24px; }
+            .shield-icon { width: 75px; height: 75px; }
+            .shield-icon svg { width: 38px; height: 38px; }
+            .content-card { padding: 28px 22px; border-radius: 20px; }
+            .section h2 { font-size: 17px; }
+            .section p, .section ul li { font-size: 14px; }
+            .section-number { width: 34px; height: 34px; font-size: 14px; }
+            .lang-toggle button { padding: 9px 18px; font-size: 13px; }
         }
     </style>
 </head>
@@ -566,7 +456,6 @@
 
     <div class="container">
 
-        <!-- 🌟 Hero Section -->
         <div class="hero">
             <div class="shield-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -588,11 +477,10 @@
                     <circle cx="12" cy="12" r="10"/>
                     <polyline points="12 6 12 12 16 14"/>
                 </svg>
-                <span id="last-updated-text">آخر تحديث: 11 سبتمبر 2026</span>
+                <span id="last-updated-text">آخر تحديث: 12 سبتمبر 2026</span>
             </div>
         </div>
 
-        <!-- 🌐 Language Toggle -->
         <div class="lang-toggle">
             <button id="btn-ar" class="active" onclick="showLang('ar')">🇰🇼 العربية</button>
             <button id="btn-en" onclick="showLang('en')">🇬🇧 English</button>
@@ -618,9 +506,10 @@
                     <p>يقدم تطبيق "كاشفهم" الخدمات التالية:</p>
                     <ul>
                         <li>كشف هوية المتصلين للأرقام الواردة.</li>
-                        <li>البحث في دليل أرقام الكويت بالاسم أو الرقم.</li>
+                        <li>البحث في دليل أرقام الشركات والخدمات الكويتية.</li>
                         <li>مكتبة ملصقات واتساب وتيليجرام المتنوعة.</li>
-                        <li>تقارير VIP للتحليل المتقدم للأرقام.</li>
+                        <li>إمكانية إضافة أرقام جديدة للدليل من قبل المستخدمين.</li>
+                        <li>طلب حذف الأرقام الشخصية بشكل فوري.</li>
                     </ul>
                 </div>
 
@@ -740,9 +629,10 @@
                     <p>The "Kashefhom" app provides the following services:</p>
                     <ul>
                         <li>Caller ID identification for incoming numbers.</li>
-                        <li>Search the Kuwait number directory by name or number.</li>
+                        <li>Search the Kuwait business and services directory.</li>
                         <li>A diverse library of WhatsApp and Telegram stickers.</li>
-                        <li>VIP reports for advanced number analysis.</li>
+                        <li>Ability to add new numbers to the directory by users.</li>
+                        <li>Instant request for personal number deletion.</li>
                     </ul>
                 </div>
 
@@ -869,7 +759,7 @@
                 html.dir = 'rtl';
                 heroTitle.textContent = 'شروط الاستخدام';
                 heroSubtitle.textContent = 'اتفاقية استخدام واضحة وعادلة';
-                lastUpdated.textContent = 'آخر تحديث: 11 سبتمبر 2026';
+                lastUpdated.textContent = 'آخر تحديث: 12 سبتمبر 2026';
             } else {
                 enContent.classList.remove('hidden');
                 arContent.classList.add('hidden');
@@ -879,10 +769,9 @@
                 html.dir = 'ltr';
                 heroTitle.textContent = 'Terms of Use';
                 heroSubtitle.textContent = 'Clear and fair usage agreement';
-                lastUpdated.textContent = 'Last updated: September 11, 2026';
+                lastUpdated.textContent = 'Last updated: September 12, 2026';
             }
 
-            // إعادة تشغيل الأنيميشن
             document.querySelectorAll('.section').forEach((el, i) => {
                 el.style.animation = 'none';
                 setTimeout(() => {
@@ -891,7 +780,6 @@
             });
         }
 
-        // أنيميشن عند التمرير
         window.addEventListener('scroll', () => {
             const scrolled = window.scrollY;
             const hero = document.querySelector('.hero');
